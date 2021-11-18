@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardBookController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\LoginController;
@@ -46,6 +47,9 @@ Route::get('/pinjam', function () {
 });
 
 Route::get('/profil', [UserController::class, 'profil']);
+
+Route::get('/category', [CategoryController::class, 'index']);
+Route::post('/category', [CategoryController::class, 'store']);
 
 Route::resource('/books', DashboardBookController::class)->middleware('auth');
 Route::resource('/users', DashboardUserController::class)->middleware('auth');

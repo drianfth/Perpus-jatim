@@ -55,7 +55,7 @@ class DashboardBookController extends Controller
         ]);
 
         book::create($validatedData);
-        return back()->with('success', 'Buku telah ditambahkan');
+        return redirect('/books')->with('success', 'Buku telah ditambahkan');
     }
 
     /**
@@ -106,5 +106,7 @@ class DashboardBookController extends Controller
     public function destroy(book $book)
     {
         //
+        book::destroy($book->id);
+        return redirect('/books')->with('success', 'buku berhasil dihapus');
     }
 }

@@ -18,6 +18,16 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(10)->create();
 
+        User::create([
+            "nik" => 3501234567890123,
+            "name" => "Hasan bin Ali",
+            "password" => bcrypt("password"),
+            "email" => "hasan@gmail.com",
+            "role" => "admin",
+            "no_telp" => "08787498473"
+
+        ]);
+
         Category::create([
             "name" => "Novel"
         ]);

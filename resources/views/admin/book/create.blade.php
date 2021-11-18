@@ -10,16 +10,6 @@
     <div class="col-lg-11">
         <div class="card">
             <div class="card-body">
-                @if (session()->has('success'))
-                    <div class="alert alert-success alert-dismissible show fade">
-                        <div class="alert-body">
-                            <button class="close" data-dismiss="alert">
-                                <span>&times;</span>
-                            </button>
-                            {{ session('success') }}
-                        </div>
-                    </div>     
-                @endif
                 <form action="/books" method="POST">
                     @csrf
                     <input type="hidden" name="img" value="Laskar Pelangi.jpg">
