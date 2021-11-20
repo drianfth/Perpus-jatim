@@ -69,7 +69,6 @@ class DashboardBookController extends Controller
         //
         return view('detail', [
             "title" => $book->judul,
-            "active" => "Home",
             "book" => $book
         ]);
     }
@@ -83,6 +82,10 @@ class DashboardBookController extends Controller
     public function edit(book $book)
     {
         //
+        return view('admin.book.create', [
+            'title' => 'Tambah Buku',
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -95,6 +98,22 @@ class DashboardBookController extends Controller
     public function update(Request $request, book $book)
     {
         //
+        $validatedData = $request->validate([
+            "judul" => "required|min:5|max:255",
+            "img" => "required",
+            "penulis" => "required|min:5|max:255",
+            "category_id" => "required",
+            "thn_terbit" => "required|max:2021",
+            "jml_halaman" => "required",
+            "sinopsis" => "required|min:5"
+        ]);
+
+
+        book::where('id', $book->id)
+            ->update($validatedData);
+
+
+        return redirect('/books')->with('success', 'Buku berhasil di update');
     }
 
     /**

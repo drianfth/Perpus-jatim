@@ -15,6 +15,15 @@ class UserController extends Controller
         ]);
     }
 
+
+    public function edit(User $user)
+    {
+        return view('profil.edit', [
+            "title" => 'Edit Profil',
+            "user" => $user
+        ]);
+    }
+
     // public function showAll()
     // {
     //     return view('admin.list', [

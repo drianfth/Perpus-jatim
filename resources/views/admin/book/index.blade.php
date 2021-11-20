@@ -40,8 +40,8 @@
                         <td>{{ $book->judul }}</td>
                         <td>{{ $book->category->name }}</td>
                         <td>
-                            <a href="/books/{{ $book->id }}" class="btn btn-info"><i class="far fa-eye"></i></a>
-                            <a href="#" class="btn btn-warning"><i class="far fa-edit"></i></a>
+                            <a href="/books/{{ $book->id }}" class="btn btn-info "><i class="far fa-eye"></i></a>
+                            <a href="/buku/{{ $book->id }}" class="btn btn-warning"><i class="far fa-edit"></i></a>
                             <form action="/books/{{ $book->id }}" method="POST" class="d-inline">
                                 @method('delete')
                                 @csrf

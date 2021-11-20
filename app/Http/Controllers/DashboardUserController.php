@@ -66,6 +66,7 @@ class DashboardUserController extends Controller
     public function edit(User $user)
     {
         //
+
     }
 
     /**
@@ -78,6 +79,25 @@ class DashboardUserController extends Controller
     public function update(Request $request, User $user)
     {
         //
+        $rules = [
+            "name" => "required|min:5|max:255",
+            "no_telp" => "required|min:5|max:255",
+        ];
+
+        if (($request->nik != $user->nik)) {
+            $rules['nik'] = "required|numeric|digits:16|unique:users";
+            $rules['email'] = "required|email:dns|unique:users";
+        }
+
+        $validatedData = $request->validate($rules);
+
+        // $validatedData['password'] = bcrypt($validatedData['password']);
+
+        // return "berhasil";
+
+        User::where('id', $user->id)
+            ->update($validatedData);
+        return back()->with('success', 'Profil Berhasil Diubah');
     }
 
     /**

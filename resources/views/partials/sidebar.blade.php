@@ -13,12 +13,12 @@
               <span>Rak Buku</span></a>
           </li>
         @else
-          <li class="{{ Request::is('books*') ? 'active' : '' }}"><a class="nav-link" href="/books"><i class="fas fa-book"></i>
+          <li class="{{ (Request::is('books*') || (Request::is('buku*'))) ? 'active' : '' }}"><a class="nav-link" href="/books"><i class="fas fa-book"></i>
             <span>Daftar Buku</span></a>
           </li>
         @endif
         <li class="menu-header">User Menu</li>
-        <li class="{{ Request::is('profil') ? 'active' : '' }}">
+        <li class="{{ Request::is('profil*') ? 'active' : '' }}">
           <a class="nav-link" href="/profil"><i class="fas fa-user"></i> <span>Profil</span></a>
         </li>
 

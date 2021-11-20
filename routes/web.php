@@ -47,9 +47,12 @@ Route::get('/pinjam', function () {
 });
 
 Route::get('/profil', [UserController::class, 'profil']);
+Route::get('/profil/{user:id}', [UserController::class, 'edit']);
 
 Route::get('/category', [CategoryController::class, 'index']);
 Route::post('/category', [CategoryController::class, 'store']);
 
 Route::resource('/books', DashboardBookController::class)->middleware('auth');
+Route::get('/buku/{book:id}', [BookController::class, 'edit'])->middleware('auth');
+
 Route::resource('/users', DashboardUserController::class)->middleware('auth');

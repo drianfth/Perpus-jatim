@@ -13,7 +13,7 @@
               <div class="author-box-left">
                 <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle author-box-picture">
                 <div class="clearfix"></div>
-                <a href="#" class="btn btn-primary mt-3 follow-btn" data-follow-action="alert('follow clicked');" data-unfollow-action="alert('unfollow clicked');">Edit</a>
+                <a href="/profil/{{ auth()->user()->id }}" class="btn btn-primary mt-3">Edit</a>
               </div>
               <div class="author-box-details">
                 <div class="author-box-name">

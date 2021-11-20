@@ -35,4 +35,15 @@ class BookController extends Controller
             "book" => $book
         ]);
     }
+
+    public function edit(book $book)
+    {
+        //
+        return view('admin.book.edit', [
+            'title' => 'Edit Buku ' . $book->judul,
+            'categories' => Category::all(),
+            'book' => $book
+        ]);
+        // return $book->judul;
+    }
 }
