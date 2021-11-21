@@ -22,7 +22,10 @@ class CategoryController extends Controller
         $ValidatedData = $request->validate([
             'name' => 'required'
         ]);
+
         Category::create($ValidatedData);
-        return redirect('/category')->with('success', 'kategori berhasil ditambahkan');
+
+        // return redirect('/books')->with('success', 'Buku berhasil di update');
+        return redirect('/books')->with('success', 'kategori berhasil ditambahkan');
     }
 }

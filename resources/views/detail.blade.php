@@ -31,7 +31,7 @@
               <li style="font-size: 18px"><span class="font-weight-bold">Jumlah Halaman : </span>{{ $book->jml_halaman }}</li>
               <li style="font-size: 18px"><span class="font-weight-bold">Sinopsis : </span><br>{!! $book->sinopsis !!}</li>
               @if (auth()->user()->role === 'user')
-                <li><a href="#" class="btn btn-primary mt-4"  style="font-size: 15px">Pinjam</a></li>
+                <li><a href="/pinjam/{{ $book->id }}" class="btn btn-primary mt-4"  style="font-size: 15px">Pinjam</a></li>
               @else
                 <li><a href="/books" class="btn btn-primary mt-4"  style="font-size: 15px"><i class="fas fa-arrow-left"></i> Back</a></li>
               @endif

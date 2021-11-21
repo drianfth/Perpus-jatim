@@ -9,7 +9,7 @@
       <ul class="sidebar-menu">
         <li class="menu-header">Home</li>
         @if (auth()->user()->role === 'user')
-          <li class=""><a class="nav-link" href="/home"><i class="fas fa-book"></i>
+          <li class="{{ (Request::is('home') || Request::is('detail*')) ? 'active' : ''}}"><a class="nav-link " href="/home"><i class="fas fa-book"></i>
               <span>Rak Buku</span></a>
           </li>
         @else
@@ -29,7 +29,7 @@
         @endif
 
         <li class="">
-          <a class="nav-link" href="/pinjam"><i class="fas fa-file-alt"></i> <span>Daftar Peminjaman</span></a>
+          <a class="nav-link" href="/riwayat"><i class="fas fa-history"></i> <span>Riwayat Peminjaman</span></a>
         </li>
 
         @if (auth()->user()->role === 'user')

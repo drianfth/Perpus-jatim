@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\User;
+use App\Models\Lokasi;
+use App\Models\Pinjam;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,8 +18,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(10)->create();
-
         User::create([
             "nik" => 3501234567890123,
             "name" => "Hasan bin Ali",
@@ -27,6 +27,18 @@ class DatabaseSeeder extends Seeder
             "no_telp" => "08787498473"
 
         ]);
+        User::create([
+            "nik" => 3501234567890126,
+            "name" => "Maulana bin Ali",
+            "password" => bcrypt("password"),
+            "email" => "maulana@gmail.com",
+            "role" => "user",
+            "no_telp" => "08787498488"
+
+        ]);
+
+        User::factory(9)->create();
+
 
         Category::create([
             "name" => "Novel"
@@ -39,6 +51,18 @@ class DatabaseSeeder extends Seeder
         ]);
         Category::create([
             "name" => "Kesehatan"
+        ]);
+        Lokasi::create([
+            "name" => "Perpustakaan Kab Sidoarjo",
+        ]);
+        Lokasi::create([
+            "name" => "Perpustakaan Kota Malang",
+        ]);
+        Lokasi::create([
+            "name" => "Perpustakaan Kab Gresik",
+        ]);
+        Lokasi::create([
+            "name" => "Perpustakaan Kota Surabaya",
         ]);
         Book::create([
             "judul" => "Laskar pelangi",
@@ -368,6 +392,23 @@ class DatabaseSeeder extends Seeder
             “They’re all sort of small slices,” said Christine Eibner, a senior economist at the RAND Corporation. “We have a whole bunch of little niches that need to be filled.”
             
             Because the bill is still being negotiated by Congress, details could change — or the legislation might fail altogether. But the current package represents a particular vision for how to overhaul the system."
+        ]);
+
+        Pinjam::create([
+            "user_id" => 2,
+            "book_id" => 2,
+            "lokasi_id" => 2,
+            "status" => "dipesan",
+            "tgl_pinjam" => date('Y-m-d'),
+            "tgl_kembali" => date('Y-m-d')
+        ]);
+        Pinjam::create([
+            "user_id" => 2,
+            "book_id" => 3,
+            "lokasi_id" => 2,
+            "status" => "dipesan",
+            "tgl_pinjam" => date('Y-m-d'),
+            "tgl_kembali" => date('Y-m-d')
         ]);
     }
 }

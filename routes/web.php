@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardBookController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PinjamController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -42,10 +43,6 @@ Route::get('/home', [BookController::class, 'home'])->middleware('auth');
 Route::get('/detail/{book:id}', [BookController::class, 'detail']);
 
 
-Route::get('/pinjam', function () {
-    return view('pinjam');
-});
-
 Route::get('/profil', [UserController::class, 'profil']);
 Route::get('/profil/{user:id}', [UserController::class, 'edit']);
 
@@ -56,3 +53,8 @@ Route::resource('/books', DashboardBookController::class)->middleware('auth');
 Route::get('/buku/{book:id}', [BookController::class, 'edit'])->middleware('auth');
 
 Route::resource('/users', DashboardUserController::class)->middleware('auth');
+Route::get('/pinjam/{book:id}', [PinjamController::class, 'index']);
+Route::post('/pinjam', [PinjamController::class, 'store']);
+
+
+Route::get('/riwayat', [PinjamController::class, 'show']);

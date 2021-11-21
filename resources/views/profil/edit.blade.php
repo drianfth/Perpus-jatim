@@ -41,7 +41,7 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                        </div>
+                        </div> 
                     </div>
                     <div class="form-group">
                         <label for="name">Nama Lengkap</label>
