@@ -22,7 +22,7 @@
           </div>
           <div class="card-body">
             <div class="text-center mb-5">
-              <img src="../img/{{ $book->img }}" alt="" class="img-thumbnail" width="300px">
+              <img src="{{ asset('storage/'. $book->img) }}" alt="" class="img-thumbnail" width="300px">
             </div>
             <ul style="list-style-type:none;">
               <li style="font-size: 18px"><span class="font-weight-bold">Judul : </span> {{ $book->judul }}</li>

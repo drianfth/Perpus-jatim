@@ -10,10 +10,10 @@
     <div class="col-lg-11">
         <div class="card">
             <div class="card-body">
-                <form action="/books/{{ $book->id }}" method="POST">
+                <form action="/books/{{ $book->id }}" method="POST" enctype="multipart/form-data">
                     @method('put')
                     @csrf
-                    <input type="hidden" name="img" value="Laskar Pelangi.jpg">
+                    <input type="hidden" name="oldImage" value="{{ $book->img }}">
                     <div class="form-group">
                         <label for="judul">Judul Buku</label>
                         <input type="text" class="form-control @error('judul') is-invalid @enderror" id="judul" placeholder="Judul Buku" name="judul" value="{{ old('judul', $book->judul) }}" autofocus>
@@ -47,6 +47,17 @@
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>                
+                        @enderror
+                    </div>
+                    <label class="mb-2"><strong> Upload Cover Buku</strong></label>
+					<img class="img-preview img-fluid mb-3 " width="150px" >
+                    <div class="custom-file mb-2">
+                        <input type="file" class="custom-file-input @error('img') is-invalid @enderror" id="img" name="img" onchange="previewImage()">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                        @error('img')
+                                <div class="invalid-feedback mt-2">
+                                    {{ $message }}
+                                </div>
                         @enderror
                     </div>
                     <div class="form-row">
@@ -87,4 +98,19 @@
         </div>
     </div>
 </div>
+<script>
+	function previewImage(){
+		const image = document.querySelector('#img');
+		const imgPreview = document.querySelector('.img-preview');
+
+		imgPreview.style.display = 'block';
+
+		const oFReader = new FileReader();
+		oFReader.readAsDataURL(img.files[0]);
+
+		oFReader.onload = function(oFREvent){
+			imgPreview.src = oFREvent.target.result;
+		}
+	}
+</script>
 @endsection

@@ -58,3 +58,4 @@ Route::post('/pinjam', [PinjamController::class, 'store']);
 
 
 Route::get('/riwayat', [PinjamController::class, 'show']);
+Route::delete('/riwayat/{pinjam:id}', [PinjamController::class, 'destroy']);

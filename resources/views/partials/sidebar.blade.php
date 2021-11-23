@@ -28,9 +28,15 @@
           </li>
         @endif
 
-        <li class="">
-          <a class="nav-link" href="/riwayat"><i class="fas fa-history"></i> <span>Riwayat Peminjaman</span></a>
-        </li>
+        @if (auth()->user()->role === 'admin')
+          <li class="">
+            <a class="nav-link" href="/riwayat"><i class="fas fa-database"></i> <span>Data Peminjaman</span></a>
+          </li>
+        @else
+          <li class="{{ Request::is('riwayat*') ? 'active' : '' }}">
+            <a class="nav-link" href="/riwayat"><i class="fas fa-history"></i> <span>Riwayat Peminjaman</span></a>
+          </li>
+        @endif
 
         @if (auth()->user()->role === 'user')
           <li>

@@ -7,10 +7,6 @@
 
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header">
-                
-
-            </div>
             <div class="card-body">
                 @if (session()->has('success'))
                     <div class="alert alert-success alert-dismissible show fade">
@@ -30,7 +26,7 @@
                         <th scope="col">Judul</th>
                         <th scope="col">Tanggal Kembali</th>
                         <th scope="col">Lokasi </th>
-                        <th scope="col">Action </th>
+                        <th scope="col">Cencel </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -41,7 +37,7 @@
                                 <td>
                                     <div class="badge badge-danger">{{ $p->status }}</div> 
                                 </td> 
-                            @elseif ($p->status === 'dipinjam')
+                            @elseif ($p->status === 'diambil')
                                 <td>
                                     <div class="badge badge-warning">{{ $p->status }}</div> 
                                 </td>
@@ -54,7 +50,7 @@
                             <td>{{ $p->tgl_kembali }}</td>
                             <td>{{ $p->lokasi->name }}</td>
                             <td>
-                                <form action="" method="POST" class="d-inline">
+                                <form action="/riwayat/{{ $p->id }}" method="POST" class="d-inline">
                                     @method('delete')
                                     @csrf
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('are you sure?')"><i class="far fa-times-circle"></i></button>

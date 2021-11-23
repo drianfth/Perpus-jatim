@@ -42,14 +42,22 @@ class PinjamController extends Controller
         ]);
         pinjam::create($validatedData);
 
-        return "berhasil";
+        return redirect('/riwayat')->with('success', 'Buku Berhasil diPesan silahkan ambil diperpustakaan terkait');
     }
 
     public function show()
     {
         return view('daftarpinjam', [
             "title" => "Riwayat Peminjaman",
-            "pinjam" => Pinjam::latest()->get()
+            "pinjam" => Pinjam::where('user_id', auth()->user()->id)->get()
         ]);
+    }
+
+    public function destroy(pinjam $pinjam)
+    {
+        $judul = $pinjam->judul;
+        pinjam::destroy($pinjam->id);
+        $pesan = 'buku ' . $judul . ' Batal dipinjam';
+        return back()->with('success', $pesan);
     }
 }

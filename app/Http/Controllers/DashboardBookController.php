@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\book;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardBookController extends Controller
 {
@@ -44,15 +45,18 @@ class DashboardBookController extends Controller
     public function store(Request $request)
     {
         //
+
         $validatedData = $request->validate([
             "judul" => "required|min:5|max:255",
-            "img" => "required",
+            "img" => "required|image|file|max:1024",
             "penulis" => "required|min:5|max:255",
             "category_id" => "required",
             "thn_terbit" => "required|max:2021",
             "jml_halaman" => "required",
             "sinopsis" => "required|min:5"
         ]);
+
+        $validatedData['img'] = $request->file('img')->store('cover-images');
 
         book::create($validatedData);
         return redirect('/books')->with('success', 'Buku telah ditambahkan');
@@ -100,13 +104,15 @@ class DashboardBookController extends Controller
         //
         $validatedData = $request->validate([
             "judul" => "required|min:5|max:255",
-            "img" => "required",
+            "img" => "required|image|file|max:1024",
             "penulis" => "required|min:5|max:255",
             "category_id" => "required",
             "thn_terbit" => "required|max:2021",
             "jml_halaman" => "required",
             "sinopsis" => "required|min:5"
         ]);
+
+        $validatedData['img'] = $request->file('img')->store('cover-images');
 
 
         book::where('id', $book->id)

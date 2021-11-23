@@ -15,7 +15,7 @@
                     <div class="col-6 col-sm-4 col-md-3 col-lg-2 buku buku-perpus mb-4">
                         <div class="row list-buku">
                             <a href="/detail/ {{ $book->id }}" class="text-decoration-none">
-                                <img src="img/{{ $book->img }}" alt="" class="img-thumbnail">
+                                <img src="{{ asset('storage/'.$book->img) }}" alt="" class="img-thumbnail">
                                 <p class="text-center">{{ $book->judul }}</p>
                             </a>
                         </div>
@@ -30,7 +30,7 @@
                             @foreach ($books->where('category_id',$category->id) as $book)
                                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 buku buku-perpus mb-4">
                                     <a href="/detail/ {{ $book->id }}" class="text-decoration-none">
-                                        <img src="img/{{ $book->img }}" alt="" class="img-thumbnail">
+                                        <img src="{{ asset('storage/'.$book->img) }}" alt="" class="img-thumbnail">
                                         <p class="text-center">{{ $book->judul }}</p>
                                     </a>
                                 </div>

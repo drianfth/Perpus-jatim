@@ -18,6 +18,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $pinjam            = date("Y-m-d");
+        $tujuh_hari        = mktime(0, 0, 0, date("n"), date("j") + 7, date("Y"));
+        $kembali        = date("Y-m-d", $tujuh_hari);
         User::create([
             "nik" => 3501234567890123,
             "name" => "Hasan bin Ali",
@@ -66,7 +69,7 @@ class DatabaseSeeder extends Seeder
         ]);
         Book::create([
             "judul" => "Laskar pelangi",
-            "img" => "Laskar Pelangi.jpg",
+            "img" => "cover-images/Laskar Pelangi.jpg",
             "penulis" => "Andrea Hirata",
             "category_id" => 1,
             "thn_terbit" => 2005,
@@ -79,7 +82,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Bumi Manusia",
             "penulis" => "Pramoedya Ananta Toer",
-            "img" => "Bumi Manusia.jpeg",
+            "img" => "cover-images/Bumi Manusia.jpeg",
             "category_id" => 1,
             "thn_terbit" => 1980,
             "jml_halaman" => 502,
@@ -92,7 +95,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Ayat-Ayat Cinta",
             "penulis" => "Habiburrahman El Shirazy",
-            "img" => "Ayat Ayat Cinta.jpg",
+            "img" => "cover-images/Ayat Ayat Cinta.jpg",
             "category_id" => 1,
             "thn_terbit" => 2003,
             "jml_halaman" => 523,
@@ -104,7 +107,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Negeri 5 Menara",
             "penulis" => "Ahmad Fuadi",
-            "img" => "Negeri 5 Menara.jpg",
+            "img" => "cover-images/Negeri 5 Menara.jpg",
             "category_id" => 1,
             "thn_terbit" => 2009,
             "jml_halaman" => 400,
@@ -116,7 +119,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "5 cm",
             "penulis" => "Donny Dhirgantoro",
-            "img" => "5 cm.jpg",
+            "img" => "cover-images/5 cm.jpg",
             "category_id" => 1,
             "thn_terbit" => 2005,
             "jml_halaman" => 537,
@@ -128,7 +131,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Cantik Itu Luka",
             "penulis" => "Eka Kurniawan",
-            "img" => "Cantik itu Luka.jpg",
+            "img" => "cover-images/Cantik itu Luka.jpg",
             "category_id" => 1,
             "thn_terbit" => 2002,
             "jml_halaman" => 537,
@@ -140,7 +143,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Dasar Logika Informatika",
             "penulis" => "Maxrizal",
-            "img" => "Dasar Logika Informatika.jpg",
+            "img" => "cover-images/Dasar Logika Informatika.jpg",
             "category_id" => 2,
             "thn_terbit" => 2015,
             "jml_halaman" => 70,
@@ -152,7 +155,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Pengantar Jaringan Komputer Pendekatan Praktis Untuk Pemula",
             "penulis" => "Agung Suprapto",
-            "img" => "pengantar-Jaringan-Komputer_Agung-Suprapto-rev-2.0-convert-cover-depan-scaled.jpg",
+            "img" => "cover-images/pengantar-Jaringan-Komputer_Agung-Suprapto-rev-2.0-convert-cover-depan-scaled.jpg",
             "category_id" => 2,
             "thn_terbit" => 1980,
             "jml_halaman" => 502,
@@ -164,7 +167,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Sistem Operasi",
             "penulis" => "Onno W Purbo",
-            "img" => "Sistem Operasi.jpg",
+            "img" => "cover-images/Sistem Operasi.jpg",
             "category_id" => 2,
             "thn_terbit" => 2019,
             "jml_halaman" => 123,
@@ -176,7 +179,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Buku Ajar Matematika Teknik 1",
             "penulis" => "Sigit Kusmaryanto",
-            "img" => "Buku Ajar.jpg",
+            "img" => "cover-images/Buku Ajar.jpg",
             "category_id" => 3,
             "thn_terbit" => 2013,
             "jml_halaman" => 126,
@@ -188,7 +191,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Mengenal Polimer Dan Polimerisasi",
             "penulis" => "Rochmadi Ajar Permono",
-            "img" => "polimer-dan-polimerasi.jpg",
+            "img" => "cover-images/polimer-dan-polimerasi.jpg",
             "category_id" => 3,
             "thn_terbit" => 2018,
             "jml_halaman" => 219,
@@ -200,7 +203,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Mekatronika",
             "penulis" => "Gesang Nugroho",
-            "img" => "mekatronika_depan1.jpg",
+            "img" => "cover-images/mekatronika_depan1.jpg",
             "category_id" => 3,
             "thn_terbit" => 2021,
             "jml_halaman" => 146,
@@ -212,7 +215,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Geologi Mineral Logam",
             "penulis" => "Sukandarrumidi",
-            "img" => "Geologi-Mineral-Logam.png",
+            "img" => "cover-images/Geologi-Mineral-Logam.png",
             "category_id" => 3,
             "thn_terbit" => 2016,
             "jml_halaman" => 210,
@@ -224,7 +227,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Pola Pikir Sistem",
             "penulis" => "Agus Maryono",
-            "img" => "pola-pikir-sistem_depan.jpg",
+            "img" => "cover-images/pola-pikir-sistem_depan.jpg",
             "category_id" => 3,
             "thn_terbit" => 2019,
             "jml_halaman" => 145,
@@ -236,7 +239,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Kesehatan Lingkungan",
             "penulis" => "Juli Soemirat",
-            "img" => "kesehatan-lingkungan.png",
+            "img" => "cover-images/kesehatan-lingkungan.png",
             "category_id" => 4,
             "thn_terbit" => 2018,
             "jml_halaman" => 268,
@@ -252,7 +255,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Manajemen Program Kesehatan",
             "penulis" => "Yodi Mahendradhata",
-            "img" => "Manajemen-Program-Kesehatan.jpg",
+            "img" => "cover-images/Manajemen-Program-Kesehatan.jpg",
             "category_id" => 4,
             "thn_terbit" => 2019,
             "jml_halaman" => 160,
@@ -268,7 +271,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Imunologi Gizi",
             "penulis" => "Harry Freitag Luglio Muhammad",
-            "img" => "imunologi.jpg",
+            "img" => "cover-images/imunologi.jpg",
             "category_id" => 4,
             "thn_terbit" => 2021,
             "jml_halaman" => 127,
@@ -284,7 +287,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Epidemiologi Untuk Kesehatan Masyarakat",
             "penulis" => "Riris Andono Ahmad",
-            "img" => "Buku-Teks-Epidemiologi-untuk-Kesehatan-Masyarakat.png",
+            "img" => "cover-images/Buku-Teks-Epidemiologi-untuk-Kesehatan-Masyarakat.png",
             "category_id" => 4,
             "thn_terbit" => 2021,
             "jml_halaman" => 212,
@@ -300,7 +303,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Pedoman Penatalaksanaan Gizi Atlet",
             "penulis" => "Mirza Hapsari Sakti Titis Penggalih",
-            "img" => "Pedoman-Penatalaksanaan-Gizi-Atlet.png",
+            "img" => "cover-images/Pedoman-Penatalaksanaan-Gizi-Atlet.png",
             "category_id" => 4,
             "thn_terbit" => 2021,
             "jml_halaman" => 232,
@@ -316,7 +319,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Toksikologi Lingkungan",
             "penulis" => "Avicena S.M.",
-            "img" => "Toksikologi-Lingkungan.jpg",
+            "img" => "cover-images/Toksikologi-Lingkungan.jpg",
             "category_id" => 4,
             "thn_terbit" => 2021,
             "jml_halaman" => 382,
@@ -332,7 +335,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Perencanaan Dan Evaluasi Kesehatan",
             "penulis" => "Putri Permatasari",
-            "img" => "Perencanaan-dan-Evaluasi-Kesehatan.jpg",
+            "img" => "cover-images/Perencanaan-dan-Evaluasi-Kesehatan.jpg",
             "category_id" => 4,
             "thn_terbit" => 2021,
             "jml_halaman" => 382,
@@ -348,7 +351,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Manajemen Lab. Administrasi Multimedia Dan Edukasi Kesehatan",
             "penulis" => "Puguh Yudho Trisnanto",
-            "img" => "Manajemen-Lab.Administrasi.jpg",
+            "img" => "cover-images/Manajemen-Lab.Administrasi.jpg",
             "category_id" => 4,
             "thn_terbit" => 2021,
             "jml_halaman" => 201,
@@ -364,7 +367,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "The Shortcut: Perawatan Dasar Kulit",
             "penulis" => "Rizki Hapsari Nugraha",
-            "img" => "perawatan dasar kulit.jpg",
+            "img" => "cover-images/perawatan dasar kulit.jpg",
             "category_id" => 4,
             "thn_terbit" => 2021,
             "jml_halaman" => 88,
@@ -380,7 +383,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Kajian Filsafat Dalam Kedokteran Gigi",
             "penulis" => "Rizki Amalina",
-            "img" => "kajian-filsafat.jpeg",
+            "img" => "cover-images/kajian-filsafat.jpeg",
             "category_id" => 4,
             "thn_terbit" => 2021,
             "jml_halaman" => 124,
@@ -399,16 +402,16 @@ class DatabaseSeeder extends Seeder
             "book_id" => 2,
             "lokasi_id" => 2,
             "status" => "dipesan",
-            "tgl_pinjam" => date('Y-m-d'),
-            "tgl_kembali" => date('Y-m-d')
+            "tgl_pinjam" => $pinjam,
+            "tgl_kembali" => $kembali
         ]);
         Pinjam::create([
             "user_id" => 2,
             "book_id" => 3,
             "lokasi_id" => 2,
             "status" => "dipesan",
-            "tgl_pinjam" => date('Y-m-d'),
-            "tgl_kembali" => date('Y-m-d')
+            "tgl_pinjam" => $pinjam,
+            "tgl_kembali" => $kembali
         ]);
     }
 }
