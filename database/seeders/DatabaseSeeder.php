@@ -401,7 +401,7 @@ class DatabaseSeeder extends Seeder
             "user_id" => 2,
             "book_id" => 2,
             "lokasi_id" => 2,
-            "status" => "dipesan",
+            "status" => "Pesan",
             "tgl_pinjam" => $pinjam,
             "tgl_kembali" => $kembali
         ]);
@@ -409,7 +409,7 @@ class DatabaseSeeder extends Seeder
             "user_id" => 2,
             "book_id" => 3,
             "lokasi_id" => 2,
-            "status" => "dipesan",
+            "status" => "Pesan",
             "tgl_pinjam" => $pinjam,
             "tgl_kembali" => $kembali
         ]);

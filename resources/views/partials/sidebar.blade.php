@@ -29,8 +29,8 @@
         @endif
 
         @if (auth()->user()->role === 'admin')
-          <li class="">
-            <a class="nav-link" href="/riwayat"><i class="fas fa-database"></i> <span>Data Peminjaman</span></a>
+          <li class="{{ Request::is('perpustakaan*') ? 'active' : '' }}">
+            <a class="nav-link" href="/perpustakaan"><i class="fas fa-database"></i> <span>Data Peminjaman</span></a>
           </li>
         @else
           <li class="{{ Request::is('riwayat*') ? 'active' : '' }}">

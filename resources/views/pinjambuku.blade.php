@@ -44,7 +44,7 @@
                   @endforeach
                 </select>
               </div>
-              <input type="hidden" value="dipesan" name="status">
+              <input type="hidden" value="Pesan" name="status">
               <input type="hidden" value="{{ $tgl_pinjam }}" name="tgl_pinjam">
               <input type="hidden" value="{{ $tgl_kembali }}" name="tgl_kembali">
             </div>

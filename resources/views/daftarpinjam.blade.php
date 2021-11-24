@@ -19,25 +19,25 @@
                     </div>     
                 @endif
                 <table class="table table-hover text-center">
-                    <thead>
+                    <thead class="bg-info">
                       <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Judul</th>
-                        <th scope="col">Tanggal Kembali</th>
-                        <th scope="col">Lokasi </th>
-                        <th scope="col">Cencel </th>
+                        <th scope="col"  class="text-white">No</th>
+                        <th scope="col"  class="text-white">Status</th>
+                        <th scope="col"  class="text-white">Judul</th>
+                        <th scope="col"  class="text-white">Tanggal Kembali</th>
+                        <th scope="col"  class="text-white">Lokasi </th>
+                        <th scope="col"  class="text-white">Cencel </th>
                       </tr>
                     </thead>
                     <tbody>
                     @foreach ($pinjam as $p)
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
-                            @if ($p->status === 'dipesan')
+                            @if ($p->status === 'Pesan')
                                 <td>
                                     <div class="badge badge-danger">{{ $p->status }}</div> 
                                 </td> 
-                            @elseif ($p->status === 'diambil')
+                            @elseif ($p->status === 'Pinjam')
                                 <td>
                                     <div class="badge badge-warning">{{ $p->status }}</div> 
                                 </td>

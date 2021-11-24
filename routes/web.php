@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardBookController;
+use App\Http\Controllers\DashboardPerpusController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PinjamController;
@@ -59,3 +60,6 @@ Route::post('/pinjam', [PinjamController::class, 'store']);
 
 Route::get('/riwayat', [PinjamController::class, 'show']);
 Route::delete('/riwayat/{pinjam:id}', [PinjamController::class, 'destroy']);
+
+Route::get('/perpustakaan', [DashboardPerpusController::class, 'index']);
+Route::get('/perpustakaan/{lokasi:id}', [DashboardPerpusController::class, 'show']);
