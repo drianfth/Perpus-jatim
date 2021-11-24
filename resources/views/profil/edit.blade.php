@@ -7,7 +7,7 @@
 </div>
 
 <div class="row justify-content-center">
-    <div class="col-lg-11">
+    <div class="col col-md-11 col-lg-8">
         <div class="card">
             <div class="card-body">
                 @if (session()->has('success'))
@@ -63,11 +63,10 @@
                             @enderror
                         </div>
                     </div>
-
-
-                    
-                    <a href="/profil" class="btn btn-success"><i class="fas fa-arrow-left"></i> back</a>
-                    <button type="submit" class="btn btn-primary">Edit</button>
+                    <div class="d-flex justify-content-between">
+                        <a href="/profil" class="btn btn-success"><i class="fas fa-arrow-left"></i> back</a>
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </div>
                 </form>      
             </div>
             <div class="card-footer">
