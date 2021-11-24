@@ -1,4 +1,4 @@
-@extends('layput.main')
+@extends('layouts.main')
 
 @section('container')
   <div class="section-header">

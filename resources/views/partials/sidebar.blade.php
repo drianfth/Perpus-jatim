@@ -39,8 +39,8 @@
         @endif
 
         @if (auth()->user()->role === 'user')
-          <li>
-            <a class="nav-link" href=""><i class="fas fa-lightbulb"></i> <span>Petunjuk</span></a>
+          <li class="{{ Request::is('petunjuk') ? "active" : ""}}">
+            <a class="nav-link" href="/petunjuk"><i class="fas fa-lightbulb"></i> <span>Petunjuk</span></a>
           </li>
         @endif
       </ul>

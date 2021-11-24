@@ -39,6 +39,11 @@ Route::post('/register', [RegisterController::class, 'show']);
 
 
 //Main
+Route::get('/petunjuk', function () {
+    return view('petunjuk', [
+        "title" => "Petunjuk"
+    ]);
+});
 Route::get('/home', [BookController::class, 'home'])->middleware('auth');
 
 Route::get('/detail/{book:id}', [BookController::class, 'detail']);
@@ -63,3 +68,4 @@ Route::delete('/riwayat/{pinjam:id}', [PinjamController::class, 'destroy']);
 
 Route::get('/perpustakaan', [DashboardPerpusController::class, 'index']);
 Route::get('/perpustakaan/{lokasi:id}', [DashboardPerpusController::class, 'show']);
+Route::put('/perpustakaan/edit/{pinjam:id}', [DashboardPerpusController::class, 'update']);

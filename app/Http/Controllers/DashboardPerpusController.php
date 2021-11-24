@@ -27,4 +27,16 @@ class DashboardPerpusController extends Controller
             "datapinjam" => Pinjam::where('lokasi_id', $lokasi->id)->get()
         ]);
     }
+
+    public function update(Request $request, Pinjam $pinjam)
+    {
+        // return $pinjam->id;
+
+        if ($request->status != $pinjam->status) {
+            Pinjam::where('id', $pinjam->id)
+                ->update(['status' => $request->status]);
+        }
+
+        return back()->with('success', 'Status Berhasil Dirubah');
+    }
 }
