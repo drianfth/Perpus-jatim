@@ -36,8 +36,8 @@
                           @endif
                         </td>
                         <td>
-                            <a href="/users/{{ $user->id }}" class="btn btn-info"><i class="far fa-eye"></i></a>
-                            <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                            <a href="/users/{{ $user->id }}" class="btn btn-sm btn-info"><i class="far fa-eye"></i></a>
+                            <a href="#" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                         </td>
                         </tr
                     @endforeach
