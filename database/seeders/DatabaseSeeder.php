@@ -82,7 +82,7 @@ class DatabaseSeeder extends Seeder
         Book::create([
             "judul" => "Bumi Manusia",
             "penulis" => "Pramoedya Ananta Toer",
-            "img" => "cover-images/Bumi Manusia.jpeg",
+            "img" => "cover-images/Bumi Manusia.jpg",
             "category_id" => 1,
             "thn_terbit" => 1980,
             "jml_halaman" => 502,
