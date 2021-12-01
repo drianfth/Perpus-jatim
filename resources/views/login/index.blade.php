@@ -11,10 +11,21 @@
 
   <!-- CSS Libraries -->
   <link rel="stylesheet" href="../node_modules/bootstrap-social/bootstrap-social.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/components.css">
+
+  <style>
+    #togglePassword {
+      float: right;
+      margin-right: 17px;
+      margin-top: -34px;
+      cursor: pointer;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -24,7 +35,7 @@
         <div class="row">
           <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
             <div class="login-brand">
-              <img src="../assets/img/stisla-fill.svg" alt="logo" width="100" class="shadow-light rounded-circle">
+              <img src="../img/perpus-logo.svg" alt="logo" width="100" class="shadow-light rounded-circle">
             </div>
 
             @if (session()->has('success'))
@@ -70,6 +81,7 @@
                     	<label for="password" class="control-label">Password</label>
                     </div>
                     <input id="password" type="password" class="form-control @error('email') is-invalid @enderror" name="password" tabindex="2" required>
+                    <i class="bi bi-eye-slash" id="togglePassword"></i>
                     @error('password')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -114,5 +126,17 @@
   <script src="../assets/js/custom.js"></script>
 
   <!-- Page Specific JS File -->
+  
+  <!-- Custom Script -->
+  <script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#password');
+
+    togglePassword.addEventListener('click', function (e) {
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+      this.classList.toggle('bi-eye');
+    });
+  </script>
 </body>
 </html>
