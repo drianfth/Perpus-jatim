@@ -12,6 +12,16 @@
                 <h4 class="">List Anggota</h4>
             </div>
             <div class="card-body">
+              @if (session()->has('success'))
+                    <div class="alert alert-success alert-dismissible show fade">
+                        <div class="alert-body">
+                            <button class="close" data-dismiss="alert">
+                                <span>&times;</span>
+                            </button>
+                            {{ session('success') }}
+                        </div>
+                    </div>     
+              @endif
                 <table class="table table-hover text-center">
                     <thead>
                       <tr>
@@ -37,7 +47,13 @@
                         </td>
                         <td>
                             <a href="/users/{{ $user->id }}" class="btn btn-sm btn-info"><i class="far fa-eye"></i></a>
-                            <a href="#" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                            <form action="/users/{{ $user->id }}" method="POST" class="d-inline">
+                              @method('delete')
+                              @csrf
+                              <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash" onclick="return confirm('are you sure?')"></i></button>
+                            </form>
+
+                            {{-- <a href="#" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a> --}}
                         </td>
                         </tr
                     @endforeach

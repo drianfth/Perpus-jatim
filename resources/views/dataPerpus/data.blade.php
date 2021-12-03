@@ -25,6 +25,7 @@
           <thead>
             <tr>
               <th scope="col">No.</th>
+              <th scope="col">NIK</th>
               <th scope="col">Nama Member</th>
               <th scope="col">Judul Buku</th>
               <th scope="col">Status</th>
@@ -35,6 +36,7 @@
             @foreach ($datapinjam as $data)
                 <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
+                      <td>{{ $data->user->nik }}</td>
                       <td>{{ $data->user->name }}</td>
                       <td>{{ $data->book->judul }}</td>
                       <td>
