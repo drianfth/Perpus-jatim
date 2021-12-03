@@ -1,15 +1,16 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\BookController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\DashboardBookController;
-use App\Http\Controllers\DashboardPerpusController;
-use App\Http\Controllers\DashboardUserController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PinjamController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardBookController;
+use App\Http\Controllers\DashboardUserController;
+use App\Http\Controllers\DashboardPerpusController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,3 +70,7 @@ Route::delete('/riwayat/{pinjam:id}', [PinjamController::class, 'destroy']);
 Route::get('/perpustakaan', [DashboardPerpusController::class, 'index']);
 Route::get('/perpustakaan/{lokasi:id}', [DashboardPerpusController::class, 'show']);
 Route::put('/perpustakaan/edit/{pinjam:id}', [DashboardPerpusController::class, 'update']);
+
+Route::get('/sym', function () {
+    Artisan::call('storage:link');
+});
